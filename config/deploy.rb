@@ -50,7 +50,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && thin -C config/thin.yml restart"
+    run "cd #{current_path} && bundle exec thin -C config/thin.yml restart"
   end
 end
 
