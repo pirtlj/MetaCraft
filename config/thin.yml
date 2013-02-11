@@ -11,4 +11,4 @@ environment: production
 max_persistent_conns: 512
 server: 2
 daemonize: true
-#chdir: /var/www/sites/metacraft/current
+chdir: /var/www/sites/metacraft/current
