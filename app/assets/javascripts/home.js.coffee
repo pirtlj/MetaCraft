@@ -1,17 +1,17 @@
 jQuery -># set the scene size
-	WIDTH = 600
-	HEIGHT = 600
+
+	# get the DOM element to attach to
+	# - assume we've got jQuery to hand
+	$container = $('#canvas')
+
+	WIDTH = $container.innerWidth()
+	HEIGHT = $container.innerHeight()
 
 	# set some camera attributes
 	VIEW_ANGLE = 45
 	ASPECT = WIDTH / HEIGHT
 	NEAR = 0.1
 	FAR = 100000
-
-	# get the DOM element to attach to
-	# - assume we've got jQuery to hand
-	$container = $('#canvas')
-
 	# create a WebGL renderer, camera
 	# and a scene
 	window.renderer = new THREE.WebGLRenderer()
@@ -67,7 +67,7 @@ jQuery -># set the scene size
 				drawHex(dX, dY, radius, scene)
 	
 
-	drawMap(-300, -300, 10, 10, 40, scene)	
+	drawMap(0, 0, 20, 20, 40, scene)	
 	renderer.render(scene, camera)
 	
 	
