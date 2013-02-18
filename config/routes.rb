@@ -1,4 +1,7 @@
 Metacraft::Application.routes.draw do
+  resources :tiles
+
+
   devise_for :users
 
   get "home/index"

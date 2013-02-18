@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Type:
+  = @tile.type
+%p
+  %b X:
+  = @tile.x
+%p
+  %b Y:
+  = @tile.y
+
+= link_to 'Edit', edit_tile_path(@tile)
+\|
+= link_to 'Back', tiles_path

@@ -1,0 +1,23 @@
+%h1 Listing tiles
+
+%table
+  %tr
+    %th Type
+    %th X
+    %th Y
+    %th
+    %th
+    %th
+
+  - @tiles.each do |tile|
+    %tr
+      %td= tile.type
+      %td= tile.x
+      %td= tile.y
+      %td= link_to 'Show', tile
+      %td= link_to 'Edit', edit_tile_path(tile)
+      %td= link_to 'Destroy', tile, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tile', new_tile_path
