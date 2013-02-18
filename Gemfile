@@ -17,7 +17,7 @@ gem "twitter-bootstrap-rails"
 gem "rails-backbone"
 gem "rack", "1.4.1"
 
-
+gem 'devise'
 
 
 # Gems used only for assets and not required

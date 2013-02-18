@@ -35,6 +35,15 @@ module Metacraft
     
     config.app_generators.stylesheet_engine :less
 
+    config.generators do |g|
+      g.template_engine :haml
+
+      # you can also specify a different test framework or ORM here
+      # g.test_framework  :rspec
+      # g.orm             :mongoid
+    end
+
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
