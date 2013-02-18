@@ -1,4 +1,7 @@
 Metacraft::Application.routes.draw do
+  resources :games
+
+
   resources :tiles
 
 
