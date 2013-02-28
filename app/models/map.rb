@@ -11,8 +11,8 @@ class Map < ActiveRecord::Base
         xMax = 10
         yMax = 10
         z = 0
-        for x in 0..xMax
-          for y in 0..yMax
+        for x in 0..xMax-1
+          for y in 0..yMax-1
             map.voxels.create(:x => x, :y => y, :z => z)
           end
         end
