@@ -1,4 +1,10 @@
 Metacraft::Application.routes.draw do
+  resources :voxels
+
+
+  resources :maps
+
+
   resources :games
 
 

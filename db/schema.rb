@@ -11,9 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218173525) do
+ActiveRecord::Schema.define(:version => 20130228175234) do
 
   create_table "games", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "maps", :force => true do |t|
+    t.integer  "game_id"
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -43,5 +50,15 @@ ActiveRecord::Schema.define(:version => 20130218173525) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "voxels", :force => true do |t|
+    t.integer  "map_id"
+    t.string   "type"
+    t.integer  "x"
+    t.integer  "y"
+    t.integer  "z"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

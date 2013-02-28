@@ -1,20 +1,6 @@
 class Metacraft.Routers.GamesRouter extends Backbone.Router
 	initialize: (options) ->
 		console.log "GamesRouter.initialize"
-		@dispatcher = new WebSocketRails('localhost:3000/websocket')
-		
-		@dispatcher.on_open = (data) =>
-			console.log('Connection has been established: ' + data)
-
-			console.log "test event start"
-		
-			testSuccess = (response) -> 
-				console.log("Response: " + response.message)
-
-			testFailsure = (response) ->
-				console.log("Response: " + response.message)
-
-			@dispatcher.trigger('test', {message: "this is from client"}, testSuccess, testFailsure)		
 		
 		routes:
 			"new"      : "newGame"

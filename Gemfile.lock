@@ -85,6 +85,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marionette-rails (0.10.2)
+      rails (>= 3.1.0)
     mime-types (1.20.1)
     multi_json (1.5.0)
     net-scp (1.1.0)
@@ -176,6 +178,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   less-rails
+  marionette-rails
   rack (= 1.4.1)
   rails (= 3.2.9)
   rails-backbone

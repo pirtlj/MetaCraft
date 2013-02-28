@@ -1,0 +1,21 @@
+%h1 Listing maps
+
+%table
+  %tr
+    %th Game
+    %th Type
+    %th
+    %th
+    %th
+
+  - @maps.each do |map|
+    %tr
+      %td= map.game_id
+      %td= map.type
+      %td= link_to 'Show', map
+      %td= link_to 'Edit', edit_map_path(map)
+      %td= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Map', new_map_path

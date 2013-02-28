@@ -1,0 +1,27 @@
+%h1 Listing voxels
+
+%table
+  %tr
+    %th Map
+    %th Type
+    %th X
+    %th Y
+    %th Z
+    %th
+    %th
+    %th
+
+  - @voxels.each do |voxel|
+    %tr
+      %td= voxel.map_id
+      %td= voxel.type
+      %td= voxel.x
+      %td= voxel.y
+      %td= voxel.z
+      %td= link_to 'Show', voxel
+      %td= link_to 'Edit', edit_voxel_path(voxel)
+      %td= link_to 'Destroy', voxel, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Voxel', new_voxel_path

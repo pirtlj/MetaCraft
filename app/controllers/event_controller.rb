@@ -10,7 +10,7 @@ class EventController < WebsocketRails::BaseController
 
   def test
     logger.info "EventController test event...#{message} #{current_user}"
-    trigger_success(message: 'test successful')
+    trigger_success(message: "test successful #{current_user.email}")
     
   end
 end

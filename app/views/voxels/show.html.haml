@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Map:
+  = @voxel.map_id
+%p
+  %b Type:
+  = @voxel.type
+%p
+  %b X:
+  = @voxel.x
+%p
+  %b Y:
+  = @voxel.y
+%p
+  %b Z:
+  = @voxel.z
+
+= link_to 'Edit', edit_voxel_path(@voxel)
+\|
+= link_to 'Back', voxels_path

@@ -1,0 +1,25 @@
+= form_for @voxel do |f|
+  - if @voxel.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@voxel.errors.count, "error")} prohibited this voxel from being saved:"
+      %ul
+        - @voxel.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :map_id
+    = f.number_field :map_id
+  .field
+    = f.label :type
+    = f.text_field :type
+  .field
+    = f.label :x
+    = f.number_field :x
+  .field
+    = f.label :y
+    = f.number_field :y
+  .field
+    = f.label :z
+    = f.number_field :z
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Game:
+  = @map.game_id
+%p
+  %b Type:
+  = @map.type
+
+= link_to 'Edit', edit_map_path(@map)
+\|
+= link_to 'Back', maps_path
