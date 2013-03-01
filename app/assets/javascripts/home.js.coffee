@@ -46,8 +46,6 @@ if false
 			cube.position.z = Math.floor( ( Math.random() * 1000 - 500 ) / 50 ) * 50 + 25
 			window.scene.add( cube )
 
-		
-
 		# Lights
 
 		ambientLight = new THREE.AmbientLight( 0x888888 )
