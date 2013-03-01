@@ -1,4 +1,4 @@
-if true
+if false
 	jQuery ->
 		init()
 		animate()
