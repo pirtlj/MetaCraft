@@ -23,14 +23,12 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 		voxels = @model.get("maps").at(0).get("voxels")
 		
 		# Cubes
-
+		
 		geometry = new THREE.CubeGeometry( 50, 50, 50 )
 		material = new THREE.MeshLambertMaterial( { color: 0xffffff, shading: THREE.FlatShading, overdraw: true } )
 		
 		for  i in [0...voxels.size()]
 			cube = new THREE.Mesh( geometry, material )
-#			cube.scale.y = Math.floor( Math.random() * 2 + 1 )
-
 			voxel = voxels.at(i)
 			cube.position.x =  voxel.get("x") * 50 + 25
 			cube.position.y = voxel.get("z") * 50 + 25
@@ -57,17 +55,14 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 		orthonear = -1000 
 		orthofar = 3000
 		
-		@camera = new THREE.CombinedCamera(width, height, fov, near, far, orthonear, orthofar)
 		@scene = new THREE.Scene()
+		@camera = new THREE.CombinedCamera(width, height, fov, near, far, orthonear, orthofar)
 		
 		@camera.position.x = @radius * Math.sin( @theta * Math.PI / 360 ) * Math.cos( @phi * Math.PI / 360 )
 		@camera.position.y = @radius * Math.sin( @phi * Math.PI / 360 )
 		@camera.position.z = @radius * Math.cos( @theta * Math.PI / 360 ) * Math.cos( @phi * Math.PI / 360 )
 		
 		@camera.toOrthographic()
-		
-		
-		
 		@camera.lookAt( @scene.position )
 		
 		# Grid
@@ -112,7 +107,6 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 		@renderer = new THREE.CanvasRenderer()
 		@renderer.setSize( window.innerWidth, window.innerHeight )
 		
-
 		@el.appendChild( @renderer.domElement )
 	
 	

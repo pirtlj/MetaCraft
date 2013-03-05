@@ -35,8 +35,18 @@ Metacraft.addInitializer (options) ->
 	@socket.on_open = (data) =>
 		console.log('Connection has been established: ' + data)
 		console.log "test event start"
-		testSuccess = (response) -> 
+		testSuccess = (response) => 
 			console.log("Response: " + response.message)
+			
+			@gameChannel = @socket.subscribe('game')
+			
+			@gameChannel.bind('update', (data) ->
+			  console.log('channel event received: ' + data)
+			)
+			@gameChannel.trigger('update', "Test")
+
+			
 		testFailsure = (response) ->
 			console.log("Response: " + response.message)
 		@socket.trigger('test', {message: "this is from client"}, testSuccess, testFailsure)
+

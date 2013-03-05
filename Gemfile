@@ -8,7 +8,7 @@ gem 'rails', '3.2.9'
 gem 'sqlite3'
 gem 'thin'
 gem 'therubyracer'
-gem 'websocket-rails'
+gem 'websocket-rails', '0.2.1'
 
 gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
