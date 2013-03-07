@@ -17,15 +17,7 @@ Metacraft.Dispatchers = {}
 
 Metacraft.addRegions({
 	mainRegion: "#main-container"
-})
-
-
-Metacraft.addInitializer (options) ->
-	@game = new Metacraft.Models.Game({id: 1})
-	@game.fetch()
-	gameView = new Metacraft.Views.Games.ShowView({ model: @game})
-	@mainRegion.show(gameView)
-	
+})	
 
 Metacraft.addInitializer (options) ->
 	@router = new Metacraft.Routers.GamesRouter({})
@@ -49,4 +41,9 @@ Metacraft.addInitializer (options) ->
 		testFailsure = (response) ->
 			console.log("Response: " + response.message)
 		@socket.trigger('test', {message: "this is from client"}, testSuccess, testFailsure)
-
+	
+Metacraft.addInitializer (options) ->
+	@game = new Metacraft.Models.Game({id: 1})
+	@game.fetch()
+	gameView = new Metacraft.Views.Games.ShowView({model: @game})
+	@mainRegion.show(gameView)

@@ -10,4 +10,5 @@ class Metacraft.Models.Voxel extends Backbone.Model
 
 class Metacraft.Collections.VoxelsCollection extends Backbone.Collection
   model: Metacraft.Models.Voxel
-  url: '/voxels'
+	url:     '/voxels'	
+

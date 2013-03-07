@@ -157,12 +157,6 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 	onMouseWheel: (event) ->
 		event.preventDefault()
 		@radius -= (event.originalEvent.wheelDeltaY | 0)
-
-		#console.log @radius
-		#@camera.position.x = @radius * Math.sin( @theta * Math.PI / 360 ) * Math.cos( @phi * Math.PI / 360 );
-		#@camera.position.y = @radius * Math.sin( @phi * Math.PI / 360 );
-		#@camera.position.z = @radius * Math.cos( @theta * Math.PI / 360 ) * Math.cos( @phi * Math.PI / 360 );
-		#@camera.updateMatrix()
 		
 		@camera.setZoom(@zoomRatio())
 		@camera.updateMatrix()
