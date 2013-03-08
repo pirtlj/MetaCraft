@@ -14,6 +14,10 @@ gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
+
+gem 'resque', :require => "resque/server"
+
+
 gem "rails-backbone"
 gem "marionette-rails"
 gem "rack", "1.4.1"
