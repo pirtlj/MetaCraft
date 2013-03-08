@@ -9,7 +9,7 @@ class Voxel < ActiveRecord::Base
     WebsocketRails[obj.collection_channel_name].trigger 'create', obj
   end
   
-  after_create do |obj|
+  after_update do |obj|
     WebsocketRails[obj.collection_channel_name].trigger 'update', obj
   end
   

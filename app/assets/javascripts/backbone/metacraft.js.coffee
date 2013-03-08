@@ -21,23 +21,12 @@ Metacraft.addRegions({
 
 Metacraft.addInitializer (options) ->
 	@router = new Metacraft.Routers.GamesRouter({})
-	
 	@socket = new Metacraft.Dispatchers.Socket('localhost:3000/websocket')
 	
 	@socket.on_open = (data) =>
 		console.log('Connection has been established: ' + data)
-		console.log "test event start"
 		testSuccess = (response) => 
 			console.log("Response: " + response.message)
-			
-			@gameChannel = @socket.subscribe('game')
-			
-			@gameChannel.bind('update', (data) ->
-			  console.log('channel event received: ' + data)
-			)
-			@gameChannel.trigger('update', "Test")
-
-			
 		testFailsure = (response) ->
 			console.log("Response: " + response.message)
 		@socket.trigger('test', {message: "this is from client"}, testSuccess, testFailsure)
@@ -45,5 +34,6 @@ Metacraft.addInitializer (options) ->
 Metacraft.addInitializer (options) ->
 	@game = new Metacraft.Models.Game({id: 1})
 	@game.fetch()
-	gameView = new Metacraft.Views.Games.ShowView({model: @game})
-	@mainRegion.show(gameView)
+	@gameView = new Metacraft.Views.Games.ShowView({model: @game})
+	@mainRegion.show(@gameView)
+	

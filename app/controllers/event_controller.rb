@@ -11,6 +11,5 @@ class EventController < WebsocketRails::BaseController
   def test
     logger.info "EventController test event...#{message} #{current_user}"
     trigger_success(message: "test successful #{current_user.email}")
-    Voxel.first.save
   end
 end

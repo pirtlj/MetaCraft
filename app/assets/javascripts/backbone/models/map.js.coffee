@@ -6,19 +6,23 @@ class Metacraft.Models.Map extends Backbone.Model
 		
 		@voxelsChannel = Metacraft.socket.subscribe(@voxelsChannel())
 		
-		@voxelsChannel.bind('create', (model) ->
-			console.log('create event received: ' + data)
-			@add(model)
+		@voxelsChannel.bind('create', (model) =>
+			console.log('create event received: ' + model)
+			@get("voxels").add(model)
+			Metacraft.vent.trigger("game:change")
 		)
 		
-		@voxelsChannel.bind('update', (model) ->
+		@voxelsChannel.bind('update', (data) =>
 			console.log('update event received: ' + data)
-			@get(model.id).set(model)
+			model = @get("voxels").get(data.id)
+			model.set(data)
+			model.trigger("sync:socket") 
 		)
 		
-		@voxelsChannel.bind('destroy', (model) ->
-			console.log('destroy event received: ' + data)
-			@remove(model.id)
+		@voxelsChannel.bind('destroy', (model) =>
+			console.log('destroy event received: ' + model)
+			@get("voxels").remove(model.id)
+			Metacraft.vent.trigger("game:change")
 		)
 		
 	

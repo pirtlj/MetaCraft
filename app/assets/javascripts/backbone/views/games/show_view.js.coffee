@@ -1,6 +1,5 @@
 Metacraft.Views.Games ||= {}
-
-class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
+class Metacraft.Views.Games.ShowView extends Backbone.Marionette.View
 	template: JST["backbone/templates/games/show"]
 	@rendering = false
 	
@@ -16,28 +15,7 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 		"mousewheel" : "onMouseWheel"
 	
 	modelEvents:
-		"change": "onModelChanged"
-		
-	
-	onModelChanged: ->
-		voxels = @model.get("maps").at(0).get("voxels")
-		
-		# Cubes
-		
-		geometry = new THREE.CubeGeometry( 50, 50, 50 )
-		material = new THREE.MeshLambertMaterial( { color: 0xffffff, shading: THREE.FlatShading, overdraw: true } )
-		
-		for  i in [0...voxels.size()]
-			cube = new THREE.Mesh( geometry, material )
-			voxel = voxels.at(i)
-			cube.position.x =  voxel.get("x") * 50 + 25
-			cube.position.y = voxel.get("z") * 50 + 25
-			cube.position.z = voxel.get("y") * 50 + 25
-			@scene.add( cube )
-			
-		
-		@renderer.render( @scene, @camera )
-	
+		"change": "onModelChanged"	
 	
 	initialize: (options) ->
 		@radiusMax = 1000
@@ -110,13 +88,19 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 		@el.appendChild( @renderer.domElement )
 	
 	
-	render: ->
+	render: =>
+		console.log "Metacraft.Views.Games.ShowView.render"
 		if not @rendering
 			@rendering = true
 			@renderer.render( @scene, @camera )
 			@rendering = false
 		
 		return this
+	
+	animate: () =>
+		requestAnimationFrame( @animate )
+		@render()
+		#stats.update()
 	
 	
 	onMouseUp: (event) ->
@@ -165,5 +149,15 @@ class Metacraft.Views.Games.ShowView extends Backbone.Marionette.ItemView
 	
 	zoomRatio: ->
 		@radiusDefault / @radius 
-
-
+	
+	
+	onModelChanged: ->
+		voxels = @model.get("maps").at(0).get("voxels")
+		
+		for  i in [0...voxels.size()]
+			new Metacraft.Views.Voxels.VoxelView({model: voxels.at(i), scene: @scene})
+		
+		@animate()
+	
+	
+	

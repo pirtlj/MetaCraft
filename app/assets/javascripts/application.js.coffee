@@ -16,5 +16,6 @@
 //= require backbone.marionette
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require lib/three-min
 //= require backbone/metacraft
 //= require_tree .
