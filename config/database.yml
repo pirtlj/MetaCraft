@@ -23,5 +23,6 @@ production:
   database: metacraft_production
   username: postgres
   password: Random123
+  host: localhost
   pool: 5
   timeout: 5000
