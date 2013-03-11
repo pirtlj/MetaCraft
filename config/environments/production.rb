@@ -54,7 +54,7 @@ Metacraft::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
-  config.threadsafe!
+  #config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
@@ -68,6 +68,6 @@ Metacraft::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   
-  config.middleware.delete Rack::Lock  
+  #config.middleware.delete Rack::Lock  
 
 end
