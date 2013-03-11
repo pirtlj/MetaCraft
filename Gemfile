@@ -5,7 +5,8 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem "pg"
+
 gem 'thin'
 gem 'therubyracer'
 gem 'websocket-rails', '0.2.1'
@@ -15,7 +16,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 
-gem 'resque', :require => "resque/server"
+gem 'resque', :require => 'resque/server'
+gem 'resque-job-stats', :require => 'resque-job-stats/server'
 
 
 gem "rails-backbone"
@@ -39,6 +41,7 @@ end
 
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'watchr'
   gem 'spork', '~> 0.9.0.rc'
