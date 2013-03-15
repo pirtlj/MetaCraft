@@ -40,7 +40,7 @@ namespace :resque do
   end
   
   namespace :pool do
-    task :setup do
+    task :setup => :environment do
       # close any sockets or files in pool manager
       ActiveRecord::Base.connection.disconnect!
       # and re-open them in the resque worker parent
