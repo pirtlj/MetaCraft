@@ -24,6 +24,7 @@ gem "marionette-rails"
 #Worker
 gem 'resque', :require => 'resque/server'
 gem "resque-pool", "~> 0.3.0"
+gem 'resque-scheduler', :require => 'resque_scheduler'
 
 #Authentication
 gem 'devise'
