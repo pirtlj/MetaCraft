@@ -20,8 +20,20 @@ Metacraft.addRegions({
 })	
 
 Metacraft.addInitializer (options) ->
+	
+	#TODO inline this -JosephP
+	loc = window.location
+	new_uri = ""
+	if (loc.protocol == "https:")
+		new_uri = "wss:"
+	else
+		new_uri = "ws:"
+		
+	new_uri += "//" + loc.host
+	new_uri += loc.pathname + "websocket"
+	
 	@router = new Metacraft.Routers.GamesRouter({})
-	@socket = new Metacraft.Dispatchers.Socket('localhost:3000/websocket')
+	@socket = new Metacraft.Dispatchers.Socket(new_uri)
 	
 	@socket.on_open = (data) =>
 		console.log('Connection has been established: ' + data)
