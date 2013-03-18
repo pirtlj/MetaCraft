@@ -1,10 +1,9 @@
 class GameWorker
-  @queue = :game_queue
-  def self.perform(game_id)
+  include Sidekiq::Worker
+  def perform(game_id)
     game = Game.find(game_id)
-    
     game.maps.first.voxels.each do |voxel|
-      Resque.enqueue(VoxelWorker, voxel.id)
+      VoxelWorker.perform_async(voxel.id)
     end
   end
 end

@@ -1,10 +1,10 @@
 class VoxelWorker
-  @queue = :voxel_queue
-  def self.perform(voxel_id)
+  include Sidekiq::Worker
+  def perform(voxel_id)
     voxel = Voxel.find(voxel_id)
-    voxel.update_attributes(x: rand(-10..10), y: rand(-10..10), z: rand(10))
-    Resque.enqueue(VoxelWorker, voxel_id)
-    #    Resque.enqueue_in(2.seconds, VoxelWorker, voxel_id)
+    
+    
+    voxel.update_attributes(x: voxel.x + rand(-1..1), y: voxel.y + rand(-1..1), z: 0)
+    VoxelWorker.perform_in(1.seconds, voxel.id)
   end
 end
-

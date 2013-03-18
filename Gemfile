@@ -6,12 +6,17 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #Database
-gem "pg"
+
+platform :jruby do
+  gem 'activerecord-jdbcpostgresql-adapter'
+  gem 'jruby-openssl'
+  gem 'therubyrhino'
+end
 
 #Web Server
 gem 'thin'
 gem 'websocket-rails', '0.2.1'
-gem 'therubyracer'
+#gem 'therubyracer' not in Jruby -pirtlj
 
 #Client 
 gem 'jquery-rails'
@@ -22,9 +27,8 @@ gem "rails-backbone"
 gem "marionette-rails"
 
 #Worker
-gem 'resque', :require => 'resque/server'
-gem "resque-pool", "~> 0.3.0"
-gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'sidekiq'
+
 
 #Authentication
 gem 'devise'
@@ -42,11 +46,9 @@ end
 
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'watchr'
   gem 'spork', '~> 0.9.0.rc'
-  
   
   # Deploy with Capistrano
   gem 'capistrano'

@@ -1,5 +1,4 @@
 Metacraft::Application.routes.draw do
-  mount Resque::Server, :at => "/resque"
   resources :voxels
   resources :maps
   resources :games
