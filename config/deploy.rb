@@ -1,9 +1,9 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
+require "capistrano/ext/multistage"
 
 set :application, "metacraft"
 set :repository,  "git@github.com:pirtlj/MetaCraft.git"
-
 
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -17,18 +17,14 @@ ssh_options[:forward_agent] = true
 
 set :normalize_asset_timestamps, false
 
+#set :deploy_to, "/var/www/sites/#{application}"
 
-set :meta_frontend_1, "ec2-184-73-44-143.compute-1.amazonaws.com"
-set :meta_worker_1,   "ec2-54-234-132-235.compute-1.amazonaws.com"
+set :metafront_1, "ec2-184-73-44-143.compute-1.amazonaws.com"
+set :metaworker_1,   "ec2-54-234-132-235.compute-1.amazonaws.com"
 
-role :web,  meta_frontend_1                       # Your HTTP server, Apache/etc
-role :app,  meta_frontend_1, meta_worker_1, :jobs => true           # This may be the same as your `Web` server
 
 role :db,  "ec2-184-73-44-143.compute-1.amazonaws.com", :primary => true # This is where Rails migrations will run
 role :db,  "ec2-184-73-44-143.compute-1.amazonaws.com"
-
-set :deploy_to, "/var/www/sites/#{application}"
-
 
 
 before 'deploy:setup', 'rvm:install_rvm'   # install RVM

@@ -59,6 +59,7 @@ group :development, :test do
   # Deploy with Capistrano
   gem 'capistrano'
   gem 'rvm-capistrano'
+  gem 'capistrano-ext'
   # To use debugger
   # gem 'debugger'
 end
