@@ -1,10 +1,9 @@
 require "rvm/capistrano"
-require "bundler/capistrano"
+#require "bundler/capistrano"
 require "capistrano/ext/multistage"
 
 set :application, "metacraft"
 set :repository,  "git@github.com:pirtlj/MetaCraft.git"
-
 
 set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :branch, "master"
@@ -14,17 +13,12 @@ set :user, "capistrano"
 set :use_sudo, false
 ssh_options[:forward_agent] = true
 
-
 set :normalize_asset_timestamps, false
 
-#set :deploy_to, "/var/www/sites/#{application}"
+set :deploy_to, "/var/www/sites/#{application}"
 
 set :metafront_1, "ec2-184-73-44-143.compute-1.amazonaws.com"
 set :metaworker_1,   "ec2-54-234-132-235.compute-1.amazonaws.com"
-
-
-role :db,  "ec2-184-73-44-143.compute-1.amazonaws.com", :primary => true # This is where Rails migrations will run
-role :db,  "ec2-184-73-44-143.compute-1.amazonaws.com"
 
 
 before 'deploy:setup', 'rvm:install_rvm'   # install RVM
@@ -45,12 +39,3 @@ after "deploy:restart", "deploy:cleanup"
 #   end
 # end
 
-namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && bundle exec thin -C config/thin.yml restart"
-    #    run "cd #{current_path} && rake RAILS_ENV=production resque:scheduler"
-    #    run "cd #{current_path} && rake resque:pool --daemon --environment production"
-  end
-end
