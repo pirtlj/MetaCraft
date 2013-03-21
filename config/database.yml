@@ -9,12 +9,6 @@ development:
   pool: 5
   timeout: 5000
   
-metaworker:
-  adapter: postgresql
-  database: metacraft_development
-  pool: 5
-  timeout: 5000
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -32,3 +26,12 @@ production:
   host: localhost
   pool: 5
   timeout: 5000
+
+metaworker:
+    adapter: postgresql
+    database: metacraft_production
+    username: postgres
+    password: Random123
+    host: localhost
+    pool: 5
+    timeout: 5000
