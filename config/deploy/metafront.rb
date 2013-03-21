@@ -1,4 +1,4 @@
-set :bundle_without, [:development, :test, :worker]
+set :bundle_without, [:development, :test, :metaworker]
 
 role :web,  metafront_1                       # Your HTTP server, Apache/etc
 role :app,  metafront_1, :jobs => true           # This may be the same as your `Web` server

@@ -6,7 +6,7 @@ gem 'rails', '3.2.9'
 #gem 'websocket-rails', '0.2.1'
 #gem 'therubyracer' not in Jruby -pirtlj
 
-group :worker do
+group :metaworker do
   gem 'activerecord-jdbcpostgresql-adapter'
   gem 'jruby-openssl'
 end

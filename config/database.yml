@@ -9,7 +9,7 @@ development:
   pool: 5
   timeout: 5000
   
-worker:
+metaworker:
   adapter: postgresql
   database: metacraft_development
   pool: 5
