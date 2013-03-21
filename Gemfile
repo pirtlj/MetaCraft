@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-gem 'thin'
+
 gem 'websocket-rails', '0.2.1'
 #gem 'therubyracer' not in Jruby -pirtlj
 
@@ -13,14 +13,14 @@ end
 
 group :development, :test, :production do
   gem "pg"
-  
+  gem 'thin'
   #Client 
   gem 'jquery-rails'
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "haml-rails"
   
   # Using 2.1.0 from rubygems.org somehow doesn't work with jRuby, so fetch in from GitHub
-  gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
+#  gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
 end
 
 gem "rails-backbone"

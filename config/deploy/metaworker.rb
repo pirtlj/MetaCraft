@@ -1,4 +1,4 @@
-set :bundle_without, [:development, :test, :production]
+set :bundle_without, [:development, :test, :production, :assets]
 
 role :app,  metaworker_1, :jobs => true           # This may be the same as your `Web` server
 
