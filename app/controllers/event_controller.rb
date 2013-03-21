@@ -1,4 +1,4 @@
-class EventController < WebsocketRails::BaseController
+class EventController
   def initialize_session
     # perform application setup here
     @message_count = 0

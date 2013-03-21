@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: 679fc6ee91b8e77e4f30625ca574c142ac3d5782
+  specs:
+    twitter-bootstrap-rails (2.2.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,18 +74,12 @@ GEM
       warden (~> 1.2.1)
     diff-lcs (1.2.1)
     ejs (1.1.1)
-    em-synchrony (1.0.3)
-      eventmachine (>= 1.0.0.beta.1)
     erubis (2.7.0)
     eventmachine (1.0.3)
     eventmachine (1.0.3-java)
     execjs (1.4.0)
       multi_json (~> 1.0)
     facter (1.6.18)
-    faye-websocket (0.4.7)
-      eventmachine (>= 0.12.0)
-    faye-websocket (0.4.7-java)
-      eventmachine (>= 0.12.0)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -86,8 +89,6 @@ GEM
       railties (>= 3.1, < 4.1)
     highline (1.6.16)
     hike (1.2.1)
-    hiredis (0.4.5)
-    hiredis (0.4.5-java)
     i18n (0.6.4)
     jdbc-postgres (9.2.1002.1)
     journey (1.0.4)
@@ -184,7 +185,7 @@ GEM
     therubyracer (0.11.3)
       libv8 (~> 3.11.8.12)
       ref
-    thin (1.5.0)
+    thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
@@ -201,14 +202,6 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     watchr (0.7)
-    websocket-rails (0.2.1)
-      em-synchrony
-      faye-websocket
-      hiredis
-      rack
-      rails
-      redis
-      thin
 
 PLATFORMS
   java
@@ -235,6 +228,6 @@ DEPENDENCIES
   spork (~> 0.9.0.rc)
   therubyracer
   thin
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   watchr
-  websocket-rails (= 0.2.1)

@@ -5,15 +5,15 @@ class Voxel < ActiveRecord::Base
   #TODO roll this into a module syncable -pirtlj
   
   after_create do |obj|
-    WebsocketRails[obj.collection_channel_name].trigger 'create', obj
+#    WebsocketRails[obj.collection_channel_name].trigger 'create', obj
   end
   
   after_update do |obj|
-    WebsocketRails[obj.collection_channel_name].trigger 'update', obj
+#    WebsocketRails[obj.collection_channel_name].trigger 'update', obj
   end
   
   after_destroy do |obj|
-    WebsocketRails[obj.collection_channel_name].trigger 'destroy', obj
+#    WebsocketRails[obj.collection_channel_name].trigger 'destroy', obj
   end
   
   #TODO need to make chanel names more cononical -pirtlj

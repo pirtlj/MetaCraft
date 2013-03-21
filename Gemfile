@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 
-gem 'websocket-rails', '0.2.1'
+#gem 'websocket-rails', '0.2.1'
 #gem 'therubyracer' not in Jruby -pirtlj
 
 group :worker do
@@ -20,7 +20,7 @@ group :development, :test, :production do
   gem "haml-rails"
   
   # Using 2.1.0 from rubygems.org somehow doesn't work with jRuby, so fetch in from GitHub
-#  gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
 end
 
 gem "rails-backbone"
